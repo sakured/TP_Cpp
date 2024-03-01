@@ -13,11 +13,23 @@ Fraction operator+(Fraction const& f1, Fraction const& f2) {
     });
 }
 
+void operator+=(Fraction & f1, Fraction const& f2) {
+    Fraction f {f1 + f2};
+    f1.numerator = f.numerator;
+    f1.denominator = f.denominator;
+}
+
 Fraction operator-(Fraction const& f1, Fraction const& f2) {
     return simplify({
         f1.numerator * f2.denominator - f2.numerator * f1.denominator,
         f1.denominator * f2.denominator
     });
+}
+
+void operator-=(Fraction & f1, Fraction const& f2) {
+    Fraction f {f1 - f2};
+    f1.numerator = f.numerator;
+    f1.denominator = f.denominator;
 }
 
 Fraction operator*(Fraction const& f1, Fraction const& f2) {
@@ -27,11 +39,23 @@ Fraction operator*(Fraction const& f1, Fraction const& f2) {
     });
 }
 
+void operator*=(Fraction & f1, Fraction const& f2) {
+    Fraction f {f1 * f2};
+    f1.numerator = f.numerator;
+    f1.denominator = f.denominator;
+}
+
 Fraction operator/(Fraction const& f1, Fraction const& f2) {
     return simplify({
         f1.numerator * f2.denominator,
         f1.denominator * f2.numerator
     });
+}
+
+void operator/=(Fraction & f1, Fraction const& f2) {
+    Fraction f {f1 / f2};
+    f1.numerator = f.numerator;
+    f1.denominator = f.denominator;
 }
 
 bool operator==(Fraction const& f1, Fraction const& f2) {

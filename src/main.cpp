@@ -34,5 +34,16 @@ int main()
     (f1<f2) ? std::cout << std::endl << "f1 < f2 : true" : std::cout << std::endl << "f1 < f2 : false";
     (f1>=f2) ? std::cout << std::endl << "f1 >= f2 : true" : std::cout << std::endl << "f1 >= f2 : false";
     (f1<=f1) ? std::cout << std::endl << "f1 <= f1 : true" : std::cout << std::endl << "f1 <= f1 : false";
+
+    std::cout << std::endl;
+    f1 += f2;
+    std::cout << std::endl << "apres f1 += f2 : f1 = " << f1;
+    f1 -= f2;
+    std::cout << std::endl << "apres f1 -= f2 : f1 = " << f1;
+    f1 *= f2;
+    std::cout << std::endl << "apres f1 *= f2 : f1 = " << f1;
+    f1 /= f2;
+    std::cout << std::endl << "apres f1 /= f2 : f1 = " << f1;
+
     return 0;
 }
