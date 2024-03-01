@@ -83,3 +83,7 @@ bool operator>=(Fraction const& f1, Fraction const& f2) {
 bool operator<=(Fraction const& f1, Fraction const& f2) {
     return (f1.numerator * f2.denominator <= f2.numerator * f1.denominator);
 }
+
+Fraction::operator float() const {
+    return static_cast<float>(this->numerator) / static_cast<float>(this->denominator);
+}

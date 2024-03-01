@@ -4,6 +4,8 @@
 struct Fraction {
     unsigned int numerator;
     unsigned int denominator;
+
+    operator float() const;
 };
 
 std::ostream& operator<<(std::ostream& os, Fraction const& f);

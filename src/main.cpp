@@ -45,5 +45,8 @@ int main()
     f1 /= f2;
     std::cout << std::endl << "apres f1 /= f2 : f1 = " << f1;
 
+    float d1 {static_cast<float>(f1)}; 
+    std::cout << std::endl << std::endl << "static_cast<float>(f1) = " << d1;
+
     return 0;
 }
