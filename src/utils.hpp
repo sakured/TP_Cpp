@@ -2,5 +2,5 @@
 
 #include "fraction.hpp"
 
-unsigned int gcd(unsigned int a, unsigned int b);
-Fraction simplify(Fraction const& f);
+int gcd(int a, int b);
+Fraction simplify(Fraction f);
