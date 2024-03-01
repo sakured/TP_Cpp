@@ -39,3 +39,23 @@ bool operator==(Fraction const& f1, Fraction const& f2) {
     Fraction f2s {simplify({f2.numerator, f2.denominator})};
     return (f1s.numerator == f2s.numerator) && (f1s.denominator == f2s.denominator);
 }
+
+bool operator!=(Fraction const& f1, Fraction const& f2) {
+    return !(f1==f2);
+}
+
+bool operator>(Fraction const& f1, Fraction const& f2) {
+    return (f1.numerator * f2.denominator > f2.numerator * f1.denominator);
+}
+
+bool operator<(Fraction const& f1, Fraction const& f2) {
+    return (f1.numerator * f2.denominator < f2.numerator * f1.denominator);
+}
+
+bool operator>=(Fraction const& f1, Fraction const& f2) {
+    return (f1.numerator * f2.denominator >= f2.numerator * f1.denominator);
+}
+
+bool operator<=(Fraction const& f1, Fraction const& f2) {
+    return (f1.numerator * f2.denominator <= f2.numerator * f1.denominator);
+}

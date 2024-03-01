@@ -26,6 +26,13 @@ int main()
     std::cout << std::endl << std::endl << "f7 = " << f7;
     (f1==f2) ? std::cout << std::endl << "f1 == f2 : true" : std::cout << std::endl << "f1 == f2 : false";
     (f1==f7) ? std::cout << std::endl << "f1 == f7 : true" : std::cout << std::endl << "f1 == f7 : false";
+    (f1!=f2) ? std::cout << std::endl << "f1 != f2 : true" : std::cout << std::endl << "f1 != f2 : false";
+    (f1!=f7) ? std::cout << std::endl << "f1 != f7 : true" : std::cout << std::endl << "f1 != f7 : false";
 
+    std::cout << std::endl;
+    (f1>f2) ? std::cout << std::endl << "f1 > f2 : true" : std::cout << std::endl << "f1 > f2 : false";
+    (f1<f2) ? std::cout << std::endl << "f1 < f2 : true" : std::cout << std::endl << "f1 < f2 : false";
+    (f1>=f2) ? std::cout << std::endl << "f1 >= f2 : true" : std::cout << std::endl << "f1 >= f2 : false";
+    (f1<=f1) ? std::cout << std::endl << "f1 <= f1 : true" : std::cout << std::endl << "f1 <= f1 : false";
     return 0;
 }
