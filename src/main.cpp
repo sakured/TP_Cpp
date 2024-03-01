@@ -46,7 +46,14 @@ int main()
     std::cout << std::endl << "apres f1 /= f2 : f1 = " << f1;
 
     float d1 {static_cast<float>(f1)}; 
-    std::cout << std::endl << std::endl << "static_cast<float>(f1) = " << d1;
+    std::cout << std::endl << std::endl << "static_cast<float>(f1) = " << d1 << std::endl << std::endl;
+
+    Fraction f8 {f1 + 2};
+    std::cout << std::endl << "f1 + 2 = " << f8;
+    Fraction f9 {f1 - 1};
+    std::cout << std::endl << "f1 - 2 = " << f9;
+    Fraction f10 {f1 * 2};
+    std::cout << std::endl << "f1 * 2 = " << f10;
 
     return 0;
 }

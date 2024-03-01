@@ -19,6 +19,17 @@ void operator+=(Fraction & f1, Fraction const& f2) {
     f1.denominator = f.denominator;
 }
 
+Fraction operator+(Fraction const& f1, int const& i) {
+    return simplify({
+        f1.numerator + i * f1.denominator,
+        f1.denominator
+    });
+}
+
+Fraction operator+(int const& i, Fraction const& f1) {
+    return f1 + i;
+}
+
 Fraction operator-(Fraction const& f1, Fraction const& f2) {
     return simplify({
         f1.numerator * f2.denominator - f2.numerator * f1.denominator,
@@ -32,6 +43,17 @@ void operator-=(Fraction & f1, Fraction const& f2) {
     f1.denominator = f.denominator;
 }
 
+Fraction operator-(Fraction const& f1, int const& i) {
+    return simplify({
+        f1.numerator - i * f1.denominator,
+        f1.denominator
+    });
+}
+
+Fraction operator-(int const& i, Fraction const& f1) {
+    return f1 - i;
+}
+
 Fraction operator*(Fraction const& f1, Fraction const& f2) {
     return simplify({
         f1.numerator * f2.numerator,
@@ -43,6 +65,17 @@ void operator*=(Fraction & f1, Fraction const& f2) {
     Fraction f {f1 * f2};
     f1.numerator = f.numerator;
     f1.denominator = f.denominator;
+}
+
+Fraction operator*(Fraction const& f1, int const& i) {
+    return simplify({
+        f1.numerator * i,
+        f1.denominator
+    });
+}
+
+Fraction operator*(int const& i, Fraction const& f1) {
+    return f1 * i;
 }
 
 Fraction operator/(Fraction const& f1, Fraction const& f2) {
