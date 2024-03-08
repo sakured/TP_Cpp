@@ -1,3 +1,7 @@
+build
+bin
+.vscode
+
 TP1/build
 TP1/bin
 TP1/.vscode
