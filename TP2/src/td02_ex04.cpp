@@ -9,7 +9,6 @@ int search (std::vector<int> const & vec, int const value) {
     int right = vec.size() -1;
     while (left <= right) {
         int middle = (left + right) / 2;
-        // std::cout << middle << std::endl;
         if (vec[middle] == value) {
             return middle;
         } else if (vec[middle] < value) {

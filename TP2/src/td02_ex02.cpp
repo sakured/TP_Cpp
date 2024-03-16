@@ -24,24 +24,26 @@ void merge_sort_merge(std::vector<float> & vec, size_t const left, size_t const 
     while (left_index < left_size && right_index < right_size) {
         // On compare les éléments des deux sous-parties et on place le plus petit dans le vecteur original
         // on met à jour les index pour parcourir les sous-parties en conséquence
-        if (left_vec[left_index] < right_vec[right_index]) {
-            vec.push_back(left_vec[left_index]);
-            left_index ++;
+        if (left_vec[left_index] <= right_vec[right_index]) {
+            vec[index] = left_vec[left_index];
+            ++left_index;
         } else {
-            vec.push_back(right_vec[right_index]);
-            right_index++;
+            vec[index] = right_vec[right_index];
+            ++right_index;
         }
-        /* TODO */
+        ++index;
     }
 
     // S'il reste des éléments dans une des deux sous-parties, on les place dans le vecteur original
-    while (left_index < left_vec.size()) {
-        vec.push_back(left_vec[left_index]);
-        left_index++;
+    while (left_index < left_size) {
+        vec[index] = left_vec[left_index];
+        ++left_index;
+        ++index;
     }
-    while (right_index < right_vec.size()) {
-        vec.push_back(right_vec[right_index]);
-        right_index++;
+    while (right_index < right_size) {
+        vec[index] = right_vec[right_index];
+        ++right_index;
+        ++index;
     }
 }
 
