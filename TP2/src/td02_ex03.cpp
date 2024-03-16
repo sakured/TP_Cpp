@@ -29,8 +29,9 @@ pour être exécuté.
 Pour trier le même tableau, l'algorithme de tri par sélection met environ entre 25 et 65 us (soit entre 0.025 et 0.065 ms)
 pour être executé.
 
+Pour trier le même tableau, l'algorithme de tri fusion met environ entre 600 et 750 us (soit entre 0.600 et 0.750 ms)
+pour être executé.
+
 On peut donc conclure que l'algorithme le plus optimisé en terme de temps d'exécution est l'algorithme implémenté directement
 par C++.
-
-Par ailleurs, je n'ai pas réussi à terminer l'algorithme de tri-fusion, mais j'imagine que c'est le plus rapide de tous.
 */

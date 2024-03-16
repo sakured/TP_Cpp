@@ -65,15 +65,10 @@ void merge_sort(std::vector<float> & vec) {
 
 int main()
 {
-    std::vector<float> array {7.5, 2.5, 1.5, 10.5, 9.5, 6.5};
+    // std::vector<float> array {7.5, 2.5, 1.5, 10.5, 9.5, 6.5};
+    std::vector<float> array { 41, 17, 34, 0, 19, 24, 28, 8, 12, 14, 5, 45, 31, 27, 11, 41, 45, 42, 27, 36, 41, 4, 2, 3, 42, 32, 21, 16, 18, 45, 47, 26, 21, 38, 19, 12, 17, 49, 35, 44, 3, 11, 22, 33, 23, 14, 41, 11, 3, 18 };
     
     display_array(array);
-
-    if (is_sorted(array)) {
-        std::cout << "Le tableau est trie" << std::endl;
-    } else {
-        std::cout << "Le tableau n'est pas trie" << std::endl;
-    }
 
     {
         // Calcul du temps d'exécution du tri fusion
