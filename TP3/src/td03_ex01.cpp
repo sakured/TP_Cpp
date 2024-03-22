@@ -5,7 +5,6 @@
 #include <iterator>
 #include <cctype>
 #include <stack>
-#include <queue>
 
 std::vector<std::string> split_string(std::string const& s)
 {
