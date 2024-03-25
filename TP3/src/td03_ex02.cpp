@@ -50,22 +50,22 @@ std::vector<Token> tokenize(std::vector<std::string> const& words) {
     std::vector<Token> tokens;
     for (std::string w : words) {
         if (is_floating(w)) {
-            tokens.push_back(Token {TokenType::OPERAND, stof(w)});
+            tokens.push_back(make_token(stof(w)));
         } else {
             if (w == "+") {
-                tokens.push_back(Token {TokenType::OPERATOR, NULL, Operator::ADD});
+                tokens.push_back(make_token(Operator::ADD));
             } else if (w == "-") {
-                tokens.push_back(Token {TokenType::OPERATOR, NULL, Operator::SUB});
+                tokens.push_back(make_token(Operator::SUB));
             } else if (w == "*") {
-                tokens.push_back(Token {TokenType::OPERATOR, NULL, Operator::MUL});
+                tokens.push_back(make_token(Operator::MUL));
             } else if (w == "/") {
-                tokens.push_back(Token {TokenType::OPERATOR, NULL, Operator::DIV});
+                tokens.push_back(make_token(Operator::DIV));
             } else if (w == "^") {
-                tokens.push_back(Token {TokenType::OPERATOR, NULL, Operator::POW});
+                tokens.push_back(make_token(Operator::POW));
             } else if (w == "(") {
-                tokens.push_back(Token {TokenType::OPERATOR, NULL, Operator::OPEN_PAREN});
+                tokens.push_back(make_token(Operator::OPEN_PAREN));
             } else if (w == ")") {
-                tokens.push_back(Token {TokenType::OPERATOR, NULL, Operator::CLOSE_PAREN});
+                tokens.push_back(make_token(Operator::CLOSE_PAREN));
             }   
         }
     }
