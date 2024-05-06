@@ -75,13 +75,13 @@ int Node::height() const {
 void Node::delete_childs() {
     if (this->left != nullptr) {
         this->left->delete_childs();
-        this->left = nullptr;
         delete this->left;
+        this->left = nullptr;
     }
     if (this->right != nullptr) {
         this->right->delete_childs();
-        this->right = nullptr;
         delete this->right;
+        this->right = nullptr;
     }
 }
 
