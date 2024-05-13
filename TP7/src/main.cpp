@@ -88,7 +88,7 @@ int main()
 
     // VERIFICATION DE DIJKSTRA
     for (std::pair<int, std::pair<float, int>> pair : distances) {
-        std::cout << std::endl << "Noeud " << pair.first << " ( " << pair.second.first << " , " << pair.second.second << " ) " << std::endl; 
+        std::cout << "Noeud " << pair.first << " ( " << pair.second.first << " , " << pair.second.second << " ) " << std::endl; 
     }
 
 
