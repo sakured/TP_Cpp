@@ -81,6 +81,72 @@ void Graph::WeightedGraph::print_BFS(int const start) const {
     }
 }
 
+// void Graph::WeightedGraph::dijkstra_shortest_path(int const start, int const end) const {
+//     std::unordered_map<int, std::pair<float, int>> distances {}; // neuds à visiter
+//     std::priority_queue<std::pair<float, int>> nodes_to_visit {}; // plus courtes distances jusqu'aux noeuds déjà visités
+//     nodes_to_visit.push(std::make_pair(0.f, start));
+
+//     while (!nodes_to_visit.empty()) { // tant qu'il y a des noeuds à visiter
+//         int curent_node { nodes_to_visit.top().second }; // id du noeud courant
+//         nodes_to_visit.pop(); // on retire le noeud courant de la liste à visiter
+
+//         if (find(distances.begin(), distances.end(), curent_node) == distances.end()) { // Si le noeud n'est pas visité
+//             for (Graph::WeightedGraphEdge link : this->adjacency_list.find(curent_node)->second) { // on parcourt les adjacents du noeuds courant
+//                 nodes_to_visit.push(std::make_pair(link.weight, link.to)); // on les ajoute à la file à visiter
+//                 distances.insert(std::make_pair(link.to, std::make_pair(distances.find(curent_node)->second.first <  + link.weight, curent_node))); // on les ajoutes aux noeuds visités
+//             }
+//         } else { // s'il est déjà visité
+//             if (distances.find(curent_node)->second.first <  + link.weight) {
+//                 distances.find(curent_node)->second.first = ;
+//             }
+//         }
+//         // if (find(distances.begin(), distances.end(), link.to) == distances.end()) { // s'ils ont déjà été visités
+//         //     distances.insert(std::make_pair(link.to, std::make_pair(distances.find(curent_node)->second.first + link.weight, curent_node))); // on les ajoute à la liste des distances
+//         // } else { // s'ils n'ont pas été visités
+//         //     if (distances.find(curent_node)->second.first <  + link.weight) {
+//         //         // To DO
+//         //     }
+//         // }
+//     }
+// }
+
+std::unordered_map<int, std::pair<float, int>> dijkstra(Graph::WeightedGraph const & graph, int const start, int const end) {
+    std::unordered_map<int, std::pair<float, int>> distances {}; // neuds à visiter
+    std::priority_queue<std::pair<float, int>> nodes_to_visit {}; // plus courtes distances jusqu'aux noeuds déjà visités
+    nodes_to_visit.push(std::make_pair(0.f, start));
+    distances.insert(std::make_pair(start, std::make_pair(0.f, start))); 
+
+    while (!nodes_to_visit.empty()) { // tant qu'il y a des noeuds à visiter
+        int curent_node { nodes_to_visit.top().second }; // id du noeud courant
+        nodes_to_visit.pop(); // on retire le noeud courant de la liste à visiter
+        std::cout << "---current node : " << curent_node << std::endl;
+
+        for (Graph::WeightedGraphEdge link : graph.adjacency_list.find(curent_node)->second) { // on parcourt les adjacents du noeuds courant
+            std::cout << "voisin : " << link.to << std::endl;
+            
+            if (distances.find(link.to) == distances.end()) { // Si le noeud voisin n'est pas visité
+                nodes_to_visit.push(std::make_pair(link.weight, link.to)); // on l'ajoute à la file à visiter
+                distances.insert(std::make_pair(link.to, std::make_pair(distances.find(curent_node)->second.first + link.weight, curent_node))); // on l'ajoute aux noeuds visités
+
+            } else { // s'il est déjà visité
+                if (distances.find(curent_node)->second.first + link.weight < distances.find(link.to)->second.first) {
+                    distances.find(link.to)->second.first = distances.find(curent_node)->second.first + link.weight;
+                    distances.find(link.to)->second.second = curent_node;
+                }
+            }
+        }
+    }
+
+
+    // VERIFICATION
+    for (std::pair<int, std::pair<float, int>> pair : distances) {
+        std::cout << std::endl << "Noeud " << pair.first << " ( " << pair.second.first << " , " << pair.second.second << " ) " << std::endl; 
+    }
+
+    return distances;
+}
+
+
 // bool is_in_stack(std::stack<int> stack, int target) {
 //     while (!stack.empty()) {
 //         if (stack.top() == target) {

@@ -16,6 +16,12 @@ int main()
                                                       {0.f, 0.f, 0.5, 0.f},
                                                       {0.f, 1.1, 0.f, 0.f}};
 
+    // std::vector<std::vector<float>> adjacency_matrix {{0.f, 1.f, 2.f, 0.f, 0.f},
+    //                                                   {0.f, 0.f, 1.f, 5.f, 0.f},
+    //                                                   {0.f, 0.f, 0.f, 3.f, 6.f},
+    //                                                   {0.f, 0.0f, 0.f, 0.f, 2.f},
+    //                                                   {0.f, 0.f, 0.f, 0.f, 0.f}};
+
     Graph::WeightedGraph result_graph { Graph::adjacency_list_from_adjacency_matrix(adjacency_matrix) };
 
     // Affichage pour vérifier le contenu du graphe (le poid des liens est entre parenthèses)
@@ -64,6 +70,22 @@ int main()
 
     std::cout << std::endl << "Affichage en largeur : ";
     result_graph.print_BFS(0);
+
+    // -------------------------------------------------- DIJKSTRA --------------------------------------------------
+
+    std::cout << std::endl << std::endl << "-------------------- Dijkstra --------------------" << std::endl;
+
+    std::vector<std::vector<float>> adjacency_matrix_dijkstra {{0.f, 1.f, 5.f, 2.f, 0.f, 0.f},
+                                                               {0.f, 0.f, 4.f, 5.f, 0.f, 0.f},
+                                                               {0.f, 0.f, 0.f, 0.f, 3.f, 4.f},
+                                                               {0.f, 0.f, 2.f, 0.f, 5.f, 0.f},
+                                                               {0.f, 0.0f, 0.f, 0.f, 0.f, 3.f},
+                                                               {0.f, 0.f, 0.f, 0.f, 0.f, 0.f}};
+
+    Graph::WeightedGraph result_graph_dijkstra { Graph::adjacency_list_from_adjacency_matrix(adjacency_matrix_dijkstra) };
+
+    std::unordered_map<int, std::pair<float, int>> distances { dijkstra(result_graph_dijkstra, 0, 5) };
+
 
     return 0;
 }
