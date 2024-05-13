@@ -110,7 +110,7 @@ void Graph::WeightedGraph::print_BFS(int const start) const {
 //     }
 // }
 
-std::unordered_map<int, std::pair<float, int>> dijkstra(Graph::WeightedGraph const & graph, int const start, int const end) {
+std::unordered_map<int, std::pair<float, int>> Graph::dijkstra(Graph::WeightedGraph const & graph, int const start, int const end) {
     std::unordered_map<int, std::pair<float, int>> distances {}; // neuds à visiter
     std::priority_queue<std::pair<float, int>> nodes_to_visit {}; // plus courtes distances jusqu'aux noeuds déjà visités
     nodes_to_visit.push(std::make_pair(0.f, start));
@@ -119,10 +119,8 @@ std::unordered_map<int, std::pair<float, int>> dijkstra(Graph::WeightedGraph con
     while (!nodes_to_visit.empty()) { // tant qu'il y a des noeuds à visiter
         int curent_node { nodes_to_visit.top().second }; // id du noeud courant
         nodes_to_visit.pop(); // on retire le noeud courant de la liste à visiter
-        std::cout << "---current node : " << curent_node << std::endl;
 
         for (Graph::WeightedGraphEdge link : graph.adjacency_list.find(curent_node)->second) { // on parcourt les adjacents du noeuds courant
-            std::cout << "voisin : " << link.to << std::endl;
             
             if (distances.find(link.to) == distances.end()) { // Si le noeud voisin n'est pas visité
                 nodes_to_visit.push(std::make_pair(link.weight, link.to)); // on l'ajoute à la file à visiter
@@ -135,12 +133,6 @@ std::unordered_map<int, std::pair<float, int>> dijkstra(Graph::WeightedGraph con
                 }
             }
         }
-    }
-
-
-    // VERIFICATION
-    for (std::pair<int, std::pair<float, int>> pair : distances) {
-        std::cout << std::endl << "Noeud " << pair.first << " ( " << pair.second.first << " , " << pair.second.second << " ) " << std::endl; 
     }
 
     return distances;

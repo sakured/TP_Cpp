@@ -84,7 +84,12 @@ int main()
 
     Graph::WeightedGraph result_graph_dijkstra { Graph::adjacency_list_from_adjacency_matrix(adjacency_matrix_dijkstra) };
 
-    std::unordered_map<int, std::pair<float, int>> distances { dijkstra(result_graph_dijkstra, 0, 5) };
+    std::unordered_map<int, std::pair<float, int>> distances { Graph::dijkstra(result_graph_dijkstra, 0, 5) };
+
+    // VERIFICATION DE DIJKSTRA
+    for (std::pair<int, std::pair<float, int>> pair : distances) {
+        std::cout << std::endl << "Noeud " << pair.first << " ( " << pair.second.first << " , " << pair.second.second << " ) " << std::endl; 
+    }
 
 
     return 0;
