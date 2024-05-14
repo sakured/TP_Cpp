@@ -1,0 +1,28 @@
+Exercice 2 - Question 1
+Étapes de l'algorithme de Dijkstra
+
+Distances : 
+À visiter : A(0)
+
+Distances : B(1,A) D(2,A) C(5,A)
+À visiter : B(1) D(2) C(5)
+
+Distances : B(1,A) D(2,A) C(5,A)
+À visiter : D(2) C(5) D(6)
+
+Distances : B(1,A) D(2,A) C(5,A)
+À visiter : C(5) D(6) E(7) C(4)
+
+Distances : B(1,A) D(2,A) C(4,D)
+À visiter : C(5) D(6) E(7) F(8)
+
+Distances : B(1,A) D(2,A) C(4,D)
+À visiter : D(6) E(7) F(8)
+
+Distances : B(1,A) D(2,A) C(4,D)
+À visiter : E(7) F(8)
+
+Distances : B(1,A) D(2,A) C(4,D) E(7,C)
+À visiter : F(8) F(10)
+
+A -> D -> C -> E
